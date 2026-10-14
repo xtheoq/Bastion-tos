@@ -3,888 +3,294 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bastion — Terms of Service</title>
+  <title>DELVO</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-dark: #0a0c10;
-      --bg-card: rgba(18, 22, 31, 0.75);
-      --bg-card-hover: rgba(26, 32, 46, 0.85);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(99, 102, 241, 0.3);
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-      --accent-indigo: #6366f1;
-      --accent-cyan: #06b6d4;
-      --accent-gradient: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
-      --glass-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 15px rgba(99, 102, 241, 0.05);
-      --glow-3d: 0 10px 30px -10px rgba(99, 102, 241, 0.25);
-    }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      scroll-behavior: smooth;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      line-height: 1.6;
+      background-color: #3b82f6;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
       overflow-x: hidden;
-      background-image: 
-        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 85% 65%, rgba(6, 182, 212, 0.1) 0%, transparent 40%);
-      background-attachment: fixed;
     }
 
-    /* Container layout */
-    .app-container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 20px;
+    /* Hover Trigger Area on the Left Edge */
+    .sidebar-trigger {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 100vh;
+      z-index: 100;
     }
 
-    /* Header */
-    header {
-      background: var(--bg-card);
+    /* Collapsible Sidebar */
+    aside {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 260px;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(16px);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 24px 32px;
-      margin-bottom: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: var(--glass-shadow);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-      transform-style: preserve-3d;
-    }
-
-    header:hover {
-      box-shadow: var(--glow-3d);
-      border-color: var(--border-accent);
-    }
-
-    .brand-section {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    /* SVG 3D Logo */
-    .bot-avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      background: #0d1117;
-      border: 1px solid var(--border-accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
-      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    header:hover .bot-avatar {
-      transform: scale(1.08) rotate(-3deg) translateZ(10px);
-    }
-
-    .brand-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 26px;
-      font-weight: 700;
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: -0.5px;
-    }
-
-    .brand-subtitle {
-      font-size: 13px;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    /* Action Buttons */
-    .copy-btn {
-      background: var(--accent-gradient);
-      color: #fff;
-      border: none;
-      padding: 12px 22px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 14px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .copy-btn:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
-    }
-
-    .copy-btn:active {
-      transform: translateY(0) scale(0.98);
-    }
-
-    /* Main Grid */
-    .content-grid {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 28px;
-    }
-
-    /* Sidebar Navigation */
-    .sidebar {
-      position: sticky;
-      top: 20px;
-      height: calc(100vh - 40px);
+      -webkit-backdrop-filter: blur(16px);
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 32px 24px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 40px;
+      transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 90;
     }
 
-    .sidebar-card {
-      background: var(--bg-card);
-      backdrop-filter: blur(16px);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: var(--glass-shadow);
-      display: flex;
-      flex-direction: column;
-      max-height: 100%;
+    .sidebar-trigger:hover + aside,
+    aside:hover {
+      left: 0;
     }
 
-    .search-box {
-      position: relative;
-      margin-bottom: 16px;
-    }
-
-    .search-input {
-      width: 100%;
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--border-color);
-      padding: 12px 16px 12px 40px;
-      border-radius: 12px;
-      color: var(--text-main);
-      font-size: 14px;
-      outline: none;
-      transition: all 0.3s ease;
-    }
-
-    .search-input:focus {
-      border-color: var(--accent-indigo);
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 16px;
-      height: 16px;
-      fill: var(--text-muted);
-    }
-
-    .nav-list {
-      list-style: none;
-      overflow-y: auto;
-      padding-right: 6px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .nav-list::-webkit-scrollbar {
-      width: 5px;
-    }
-    .nav-list::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 10px;
-    }
-
-    .nav-item a {
-      display: block;
-      padding: 10px 14px;
-      border-radius: 10px;
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 500;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .nav-item a:hover, .nav-item a.active {
-      color: #fff;
-      background: rgba(99, 102, 241, 0.15);
-      transform: translateX(4px);
-    }
-
-    /* Legal Cards Styling - Fixed for ALL 39 Sections */
-    .terms-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .intro-card {
-      background: var(--bg-card);
-      backdrop-filter: blur(16px);
-      border: 1px solid var(--border-accent);
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: var(--glass-shadow);
-      transform: translateZ(0);
-      transition: transform 0.3s ease;
-    }
-
-    .intro-title {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: #fff;
-    }
-
-    .intro-text {
-      color: var(--text-muted);
-      font-size: 15px;
-      margin-bottom: 12px;
-    }
-
-    .section-card {
-      background: var(--bg-card);
-      backdrop-filter: blur(16px);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: var(--glass-shadow);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-    }
-
-    .section-card:hover {
-      transform: translateY(-4px) scale(1.005);
-      border-color: var(--border-accent);
-      box-shadow: var(--glow-3d);
-    }
-
-    .section-header {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
+      gap: 14px;
     }
 
-    .section-number {
-      background: rgba(99, 102, 241, 0.15);
-      color: var(--accent-cyan);
-      border: 1px solid rgba(6, 182, 212, 0.3);
-      font-size: 13px;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 8px;
+    .brand img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
     }
 
-    .section-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
+    .brand span {
+      font-weight: 800;
+      font-size: 1.4rem;
+      letter-spacing: -0.03em;
       color: #ffffff;
     }
 
-    .section-body {
-      color: #d1d5db;
-      font-size: 14.5px;
-      line-height: 1.7;
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    .section-body p {
-      margin-bottom: 12px;
-    }
-
-    .section-body p:last-child {
-      margin-bottom: 0;
-    }
-
-    .section-body ul {
-      margin: 10px 0 10px 20px;
-    }
-
-    .section-body li {
-      margin-bottom: 6px;
-    }
-
-    /* Toast Notification */
-    .toast {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: #10b981;
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 12px;
+    nav button {
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.8);
+      padding: 12px 16px;
+      border-radius: 8px;
+      text-align: left;
       font-weight: 600;
-      font-size: 14px;
-      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
-      transform: translateY(100px);
-      opacity: 0;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      z-index: 1000;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
     }
 
-    .toast.show {
-      transform: translateY(0);
-      opacity: 1;
+    nav button:hover, nav button.active {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
     }
 
-    /* Responsive Design */
-    @media (max-width: 992px) {
-      .content-grid {
-        grid-template-columns: 1fr;
+    /* Main Area */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    /* Center Auth Section */
+    .hero-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 480px;
+    }
+
+    .logo-large {
+      width: 110px;
+      height: 110px;
+      margin-bottom: 24px;
+      object-fit: contain;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+    }
+
+    p.subtitle {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    .btn-discord {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: #ffffff;
+      color: #1d4ed8;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 16px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-discord:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-discord svg {
+      width: 22px;
+      height: 22px;
+      fill: #1d4ed8;
+    }
+
+    /* 3D Circular Animation Container */
+    .coming-soon-container {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      perspective: 1000px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .coming-soon-container.active {
+      display: flex;
+    }
+
+    .sphere-3d {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ffffff, #60a5fa, #1d4ed8);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+      animation: floatSmooth 4s infinite ease-in-out;
+      margin-bottom: 28px;
+    }
+
+    @keyframes floatSmooth {
+      0%, 100% {
+        transform: translateY(0) scale(1);
       }
-      .sidebar {
-        position: static;
-        height: auto;
+      50% {
+        transform: translateY(-12px) scale(1.03);
       }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-      }
-      .copy-btn {
-        width: 100%;
-        justify-content: center;
-      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .coming-soon-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .coming-soon-desc {
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 8px;
+      font-size: 1rem;
     }
   </style>
 </head>
 <body>
 
-  <div class="app-container">
-    <!-- Header -->
-    <header>
-      <div class="brand-section">
-        <div class="bot-avatar">
-          <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 20,15 L 60,15 C 75,15 85,25 85,38 C 85,48 78,55 68,58 C 80,62 88,72 88,85 C 88,98 75,108 58,108 L 20,108 Z" fill="url(#metallic)" transform="scale(0.8) translate(10, -5)"/>
-            <defs>
-              <linearGradient id="metallic" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#ffffff"/>
-                <stop offset="50%" stop-color="#94a3b8"/>
-                <stop offset="100%" stop-color="#334155"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <div>
-          <h1 class="brand-title">Bastion</h1>
-          <p class="brand-subtitle">Terms of Service • Updated October 6, 2026</p>
-        </div>
-      </div>
-      <button class="copy-btn" onclick="copyPageUrl()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-        Copy Legal Link
-      </button>
-    </header>
+  <!-- Hover Zone for Sidebar -->
+  <div class="sidebar-trigger"></div>
 
-    <!-- Main Content Layout -->
-    <div class="content-grid">
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <div class="sidebar-card">
-          <div class="search-box">
-            <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-            <input type="text" id="searchInput" class="search-input" placeholder="Search Terms..." onkeyup="filterSections()">
-          </div>
-          <ul class="nav-list" id="navList">
-            <!-- Nav Items generated dynamically -->
-          </ul>
-        </div>
-      </aside>
-
-      <!-- Terms Content Wrapper -->
-      <main class="terms-wrapper">
-        <div class="intro-card">
-          <h2 class="intro-title">Welcome to Bastion</h2>
-          <p class="intro-text">These Terms of Service ("Terms", "Terms of Service", or "Agreement") govern your access to and use of Bastion, including the Bastion Discord bot, its features, commands, systems, integrations, documentation, and any services that may be introduced or made available in connection with Bastion.</p>
-          <p class="intro-text">By inviting Bastion to a Discord server, using Bastion, configuring Bastion, interacting with Bastion's commands or systems, or otherwise accessing any part of the Service, you acknowledge that you have read, understood, and agreed to these Terms of Service.</p>
-          <p style="color: #ef4444; font-weight: 600; font-size: 14px;">If you do not agree to these Terms, you must not use Bastion.</p>
-        </div>
-
-        <!-- 39 Full Sections -->
-        <div class="section-card" id="s1">
-          <div class="section-header">
-            <span class="section-number">01</span>
-            <h3 class="section-title">Definitions</h3>
-          </div>
-          <div class="section-body">
-            <p>For the purposes of these Terms:</p>
-            <ul>
-              <li><strong>"Bastion", "we", "us", or "our"</strong> refers to the Bastion bot, its developers, maintainers, owners, associated services, and official infrastructure.</li>
-              <li><strong>"Service"</strong> refers to Bastion and all associated functionality, including commands, configuration, moderation tools, automation, APIs, and dashboards.</li>
-              <li><strong>"User", "you", or "your"</strong> refers to any person who interacts with, configures, invites, or otherwise uses Bastion.</li>
-              <li><strong>"Server"</strong> refers to a Discord server in which Bastion has been invited or authorized.</li>
-              <li><strong>"Server Administrator"</strong> refers to a person who has sufficient permissions to configure or manage Bastion within a Server.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="section-card" id="s2">
-          <div class="section-header">
-            <span class="section-number">02</span>
-            <h3 class="section-title">Acceptance of These Terms</h3>
-          </div>
-          <div class="section-body">
-            <p>By using Bastion, you confirm that you have the legal authority to accept these Terms on your own behalf or on behalf of the Discord server or organization for which you use Bastion.</p>
-            <p>Your continued use of Bastion following any modification to these Terms constitutes acceptance of the updated Terms.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s3">
-          <div class="section-header">
-            <span class="section-number">03</span>
-            <h3 class="section-title">Eligibility</h3>
-          </div>
-          <div class="section-body">
-            <p>You must comply with Discord's applicable age requirements and Terms of Service when using Bastion.</p>
-            <p>You are responsible for ensuring that your use of Bastion is lawful and compliant with all applicable policies.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s4">
-          <div class="section-header">
-            <span class="section-number">04</span>
-            <h3 class="section-title">Discord Platform</h3>
-          </div>
-          <div class="section-body">
-            <p>Bastion operates through Discord and depends on Discord's infrastructure, APIs, permissions, and services.</p>
-            <p>Bastion is an independent service and is not owned, operated, sponsored, endorsed, or officially affiliated with Discord Inc.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s5">
-          <div class="section-header">
-            <span class="section-number">05</span>
-            <h3 class="section-title">Bot Permissions</h3>
-          </div>
-          <div class="section-body">
-            <p>Server Administrators are responsible for selecting and granting the permissions requested by Bastion. Certain features may require elevated permissions to operate correctly.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s6">
-          <div class="section-header">
-            <span class="section-number">06</span>
-            <h3 class="section-title">Server Administration</h3>
-          </div>
-          <div class="section-body">
-            <p>Server Administrators are responsible for the configuration and use of Bastion within their servers. Bastion provides tools for moderation, but moderation decisions remain the sole responsibility of human administrators.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s7">
-          <div class="section-header">
-            <span class="section-number">07</span>
-            <h3 class="section-title">Custom Permissions</h3>
-          </div>
-          <div class="section-body">
-            <p>Server Administrators are responsible for configuring permission systems correctly. Bastion is not responsible for consequences resulting from misconfigurations.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s8">
-          <div class="section-header">
-            <span class="section-number">08</span>
-            <h3 class="section-title">Server-Specific Data</h3>
-          </div>
-          <div class="section-body">
-            <p>Bastion stores necessary information (such as server IDs, user IDs, role IDs, configurations, and moderation records) required to provide requested features.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s9">
-          <div class="section-header">
-            <span class="section-number">09</span>
-            <h3 class="section-title">Configuration and Data Ownership</h3>
-          </div>
-          <div class="section-body">
-            <p>Server-specific configurations belong to the server and its authorized administrators. You must not attempt to access or interfere with data belonging to another server.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s10">
-          <div class="section-header">
-            <span class="section-number">10</span>
-            <h3 class="section-title">Moderation Data</h3>
-          </div>
-          <div class="section-body">
-            <p>Moderation records are created and managed by individual server configurations. Bastion does not independently verify the accuracy of moderation actions.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s11">
-          <div class="section-header">
-            <span class="section-number">11</span>
-            <h3 class="section-title">Privacy</h3>
-          </div>
-          <div class="section-body">
-            <p>We aim to collect and process only information reasonably necessary for the operation, security, and maintenance of the Service.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s12">
-          <div class="section-header">
-            <span class="section-number">12</span>
-            <h3 class="section-title">Third-Party Services</h3>
-          </div>
-          <div class="section-body">
-            <p>Bastion may rely on third-party services and hosting providers. We are not responsible for external infrastructure availability or policies.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s13">
-          <div class="section-header">
-            <span class="section-number">13</span>
-            <h3 class="section-title">Artificial Intelligence Features</h3>
-          </div>
-          <div class="section-body">
-            <p>AI-generated responses are provided for convenience and should not be treated as professional advice. Users are responsible for verifying AI outputs.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s14">
-          <div class="section-header">
-            <span class="section-number">14</span>
-            <h3 class="section-title">Prohibited Use</h3>
-          </div>
-          <div class="section-body">
-            <p>You agree not to use Bastion for illegal activities, harassment, spam, malware distribution, or attempting to compromise the security of the Service or Discord platform.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s15">
-          <div class="section-header">
-            <span class="section-number">15</span>
-            <h3 class="section-title">Security</h3>
-          </div>
-          <div class="section-body">
-            <p>Attempts to compromise Bastion's security or bypass permissions are strictly prohibited. Potential vulnerabilities should be reported responsibly.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s16">
-          <div class="section-header">
-            <span class="section-number">16</span>
-            <h3 class="section-title">Availability</h3>
-          </div>
-          <div class="section-body">
-            <p>We aim to keep Bastion available, but uninterrupted availability is not guaranteed due to potential maintenance, updates, or external outages.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s17">
-          <div class="section-header">
-            <span class="section-number">17</span>
-            <h3 class="section-title">Changes to the Service</h3>
-          </div>
-          <div class="section-body">
-            <p>We reserve the right to modify, add, or discontinue features of Bastion at any time as the Service develops.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s18">
-          <div class="section-header">
-            <span class="section-number">18</span>
-            <h3 class="section-title">Beta Features</h3>
-          </div>
-          <div class="section-body">
-            <p>Experimental or preview features may contain bugs and can be changed or removed without prior notice.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s19">
-          <div class="section-header">
-            <span class="section-number">19</span>
-            <h3 class="section-title">Server Configuration Responsibility</h3>
-          </div>
-          <div class="section-body">
-            <p>Administrators are responsible for configuring roles, logging channels, and permissions appropriately to protect server safety.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s20">
-          <div class="section-header">
-            <span class="section-number">20</span>
-            <h3 class="section-title">Intellectual Property</h3>
-          </div>
-          <div class="section-body">
-            <p>Bastion, its logo, branding, source code, and original materials are protected by applicable intellectual property laws.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s21">
-          <div class="section-header">
-            <span class="section-number">21</span>
-            <h3 class="section-title">Bastion Name and Branding</h3>
-          </div>
-          <div class="section-body">
-            <p>The name "Bastion" and associated visual assets may not be used to falsely suggest official endorsement or affiliation.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s22">
-          <div class="section-header">
-            <span class="section-number">22</span>
-            <h3 class="section-title">Copyright</h3>
-          </div>
-          <div class="section-body">
-            <p>© 2026 Bastion. All Rights Reserved. Unauthorized reproduction or resale of proprietary assets is prohibited.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s23">
-          <div class="section-header">
-            <span class="section-number">23</span>
-            <h3 class="section-title">User Content</h3>
-          </div>
-          <div class="section-body">
-            <p>You retain ownership of original content submitted through Bastion. You grant Bastion permission to process data solely to deliver functionality.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s24">
-          <div class="section-header">
-            <span class="section-number">24</span>
-            <h3 class="section-title">External Links and Integrations</h3>
-          </div>
-          <div class="section-body">
-            <p>Bastion is not responsible for content, policies, or safety of external third-party websites linked through the Service.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s25">
-          <div class="section-header">
-            <span class="section-number">25</span>
-            <h3 class="section-title">Fees and Future Paid Features</h3>
-          </div>
-          <div class="section-body">
-            <p>Bastion may introduce optional premium features or subscriptions in the future under supplementary terms.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s26">
-          <div class="section-header">
-            <span class="section-number">26</span>
-            <h3 class="section-title">Termination and Restriction</h3>
-          </div>
-          <div class="section-body">
-            <p>We reserve the right to suspend or terminate access to Bastion in cases of abuse, security threats, or terms violations.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s27">
-          <div class="section-header">
-            <span class="section-number">27</span>
-            <h3 class="section-title">Suspension of Features</h3>
-          </div>
-          <div class="section-body">
-            <p>Specific features or integration modules may be temporarily disabled for security or maintenance operations.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s28">
-          <div class="section-header">
-            <span class="section-number">28</span>
-            <h3 class="section-title">Disclaimer of Warranties</h3>
-          </div>
-          <div class="section-body">
-            <p>Bastion is provided on an "as is" and "as available" basis without warranties of any kind.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s29">
-          <div class="section-header">
-            <span class="section-number">29</span>
-            <h3 class="section-title">Limitation of Liability</h3>
-          </div>
-          <div class="section-body">
-            <p>To the maximum extent permitted by law, Bastion maintainers shall not be liable for indirect or consequential damages.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s30">
-          <div class="section-header">
-            <span class="section-number">30</span>
-            <h3 class="section-title">Indemnification</h3>
-          </div>
-          <div class="section-body">
-            <p>You agree to hold harmless Bastion's developers from claims arising from your misuse of the Service or violation of these Terms.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s31">
-          <div class="section-header">
-            <span class="section-number">31</span>
-            <h3 class="section-title">Changes to These Terms</h3>
-          </div>
-          <div class="section-body">
-            <p>We may update these Terms from time to time. Continued use of Bastion after updates constitutes acceptance.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s32">
-          <div class="section-header">
-            <span class="section-number">32</span>
-            <h3 class="section-title">Severability</h3>
-          </div>
-          <div class="section-body">
-            <p>If any provision of these Terms is held unenforceable, the remaining provisions will continue in full force.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s33">
-          <div class="section-header">
-            <span class="section-number">33</span>
-            <h3 class="section-title">No Waiver</h3>
-          </div>
-          <div class="section-body">
-            <p>Failure to enforce any provision does not constitute a waiver of our right to enforce it in the future.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s34">
-          <div class="section-header">
-            <span class="section-number">34</span>
-            <h3 class="section-title">Entire Agreement</h3>
-          </div>
-          <div class="section-body">
-            <p>These Terms constitute the full agreement regarding your use of the Bastion service.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s35">
-          <div class="section-header">
-            <span class="section-number">35</span>
-            <h3 class="section-title">Assignment</h3>
-          </div>
-          <div class="section-body">
-            <p>You may not transfer your obligations under these Terms without authorization.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s36">
-          <div class="section-header">
-            <span class="section-number">36</span>
-            <h3 class="section-title">Force Majeure</h3>
-          </div>
-          <div class="section-body">
-            <p>Bastion is not liable for failures resulting from causes beyond reasonable control, such as network or hosting outages.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s37">
-          <div class="section-header">
-            <span class="section-number">37</span>
-            <h3 class="section-title">Governing Law</h3>
-          </div>
-          <div class="section-body">
-            <p>These Terms shall be interpreted in accordance with applicable laws.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s38">
-          <div class="section-header">
-            <span class="section-number">38</span>
-            <h3 class="section-title">Contact</h3>
-          </div>
-          <div class="section-body">
-            <p>Questions or legal inquiries should be directed through official Bastion support channels.</p>
-          </div>
-        </div>
-
-        <div class="section-card" id="s39">
-          <div class="section-header">
-            <span class="section-number">39</span>
-            <h3 class="section-title">Final Statement</h3>
-          </div>
-          <div class="section-body">
-            <p>Bastion is designed to empower communities. By using the Service, you accept full legal responsibility for your server configuration and platform rule compliance. Thank you for using Bastion.</p>
-          </div>
-        </div>
-
-      </main>
+  <!-- Sidebar -->
+  <aside>
+    <div class="brand">
+      <!-- Wklej plik z logo do folderu jako logo.png -->
+      <img src="logo.png" alt="DELVO Logo" onerror="this.style.display='none'">
+      <span>DELVO</span>
     </div>
-  </div>
+    <nav>
+      <button class="nav-btn active" onclick="showDashboard(this)">Dashboard</button>
+      <button class="nav-btn" onclick="showComingSoon(this, 'Servers')">Servers</button>
+      <button class="nav-btn" onclick="showComingSoon(this, 'Commands')">Commands</button>
+      <button class="nav-btn" onclick="showComingSoon(this, 'Analytics')">Analytics</button>
+      <button class="nav-btn" onclick="showComingSoon(this, 'Settings')">Settings</button>
+    </nav>
+  </aside>
 
-  <div id="toast" class="toast">Link copied to clipboard!</div>
+  <!-- Main Content -->
+  <main>
+    
+    <!-- Hero / Auth Section -->
+    <div class="hero-content" id="hero-section">
+      <img src="logo.png" alt="DELVO Logo" class="logo-large" onerror="this.style.display='none'">
+      <h1>DELVO</h1>
+      <p class="subtitle">Minimalist Discord Bot Management</p>
+
+      <a href="https://discord.com/oauth2/authorize?client_id=1553331724690128896&permissions=8&integration_type=0&scope=bot+applications.commands" class="btn-discord" target="_blank">
+        <svg viewBox="0 0 127.14 96.36">
+          <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a73.57,73.57,0,0,0,64.32,0c.87.69,1.76,1.37,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1,105.25,105.25,0,0,0,32.19-16.14c2.64-27.38-4.51-51.11-18.91-72.15ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,45.92,53.86,53,48.73,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,45.92,96.09,53,91,65.69,84.69,65.69Z"/>
+        </svg>
+        Login with Discord
+      </a>
+    </div>
+
+    <!-- 3D Coming Soon Animation -->
+    <div class="coming-soon-container" id="coming-soon">
+      <div class="sphere-3d"></div>
+      <div class="coming-soon-title">Coming Soon</div>
+      <div class="coming-soon-desc" id="coming-soon-section">This feature is under development.</div>
+    </div>
+
+  </main>
 
   <script>
-    // Build dynamic sidebar navigation
-    const sections = document.querySelectorAll('.section-card');
-    const navList = document.getElementById('navList');
+    const heroSection = document.getElementById('hero-section');
+    const comingSoon = document.getElementById('coming-soon');
+    const comingSoonSection = document.getElementById('coming-soon-section');
+    const navButtons = document.querySelectorAll('.nav-btn');
 
-    sections.forEach((sec, idx) => {
-      const title = sec.querySelector('.section-title').innerText;
-      const id = sec.id;
-      const li = document.createElement('li');
-      li.className = 'nav-item';
-      li.innerHTML = `<a href="#${id}">${idx + 1}. ${title}</a>`;
-      navList.appendChild(li);
-    });
-
-    // Copy URL function
-    function copyPageUrl() {
-      navigator.clipboard.writeText(window.location.href);
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2500);
+    function setActiveBtn(btn) {
+      navButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
     }
 
-    // Live search filter
-    function filterSections() {
-      const q = document.getElementById('searchInput').value.toLowerCase();
-      sections.forEach(sec => {
-        const text = sec.innerText.toLowerCase();
-        if(text.includes(q)) {
-          sec.style.display = 'block';
-        } else {
-          sec.style.display = 'none';
-        }
-      });
+    function showDashboard(btn) {
+      setActiveBtn(btn);
+      comingSoon.classList.remove('active');
+      heroSection.style.display = 'flex';
     }
 
-    // Highlight active scroll link
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(sec => {
-        const top = sec.offsetTop;
-        if (pageYOffset >= top - 150) {
-          current = sec.getAttribute('id');
-        }
-      });
-
-      document.querySelectorAll('.nav-item a').forEach(a => {
-        a.classList.remove('active');
-        if (a.getAttribute('href') === `#${current}`) {
-          a.classList.add('active');
-        }
-      });
-    });
+    function showComingSoon(btn, sectionName) {
+      setActiveBtn(btn);
+      heroSection.style.display = 'none';
+      comingSoon.classList.add('active');
+      comingSoonSection.innerText = `${sectionName} module is coming soon.`;
+    }
   </script>
+
 </body>
 </html>
